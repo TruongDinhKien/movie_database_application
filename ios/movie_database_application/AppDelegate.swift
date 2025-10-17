@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "movie_database_application",
+      withModuleName: "Movie",
       in: window,
       launchOptions: launchOptions
     )
