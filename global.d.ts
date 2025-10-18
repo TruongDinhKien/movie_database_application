@@ -1,5 +1,5 @@
 
-type TVariant = "primary" | "secondary" | "tertiary";
+type TVariant = "primary" | "secondary" | "tertiary" | "white";
 
 
 interface Movie {
@@ -34,6 +34,41 @@ interface Movie {
 interface DropdownOption {
   label: string;
   value: string;
+}
+
+interface Credit {
+  id: number
+  cast: Cast[]
+  crew: Crew[]
+}
+
+interface Cast {
+  id: number
+  credit_id: string
+  adult: boolean
+  gender: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string
+  cast_id: number
+  character: string
+  order: number
+}
+
+interface Crew {
+  id: number
+  credit_id: string
+  adult: boolean
+  gender: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string
+  department: string
+  job: string
 }
 
 declare module '@env' {

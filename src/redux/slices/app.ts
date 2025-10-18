@@ -33,7 +33,8 @@ const settingSlice = createSlice({
     builder
       .addCase(getMovies.fulfilled, (state, action) => {
         state.loading = false
-        state.movies = [...state.movies, ...(action.payload?.results || [])]
+        const movies = action.payload.results || []
+        state.movies = action.payload.page === 1 ? movies : [...state.movies, ...movies]
         state.page = state.page + 1
       })
       .addCase(getMovies.rejected, (state) => {
@@ -52,16 +53,17 @@ export const getMovies = createAsyncThunk(
     const app = state.app
     const settings = state.settings
     const searchTerm = settings.search
+    const page = options.page || app.page
     let endpoint: string;
     try {
       if (searchTerm.length) {
         const encodedQuery = encodeURIComponent(searchTerm);
-        endpoint = `search/movie?query=${encodedQuery}&page=${app.page}&language=en-US`;
+        endpoint = `search/movie?query=${encodedQuery}&page=${page}&language=en-US`;
       } else {
-        endpoint = `movie/${settings.category}?language=en-US&page=${app.page}&sort_by=${settings.sortedBy}`;
+        endpoint = `movie/${settings.category}?language=en-US&page=${page}&sort_by=${settings.sortedBy}`;
       }
       const res = await apiGet(endpoint);
-      return res
+      return { ...res, page }
 
     } catch (error) {
       Alert.alert('Error get movie list', JSON.stringify(error))

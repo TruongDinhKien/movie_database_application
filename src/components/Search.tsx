@@ -3,7 +3,7 @@ import AppButton from './cores/AppButton';
 import { StyleSheet } from 'react-native';
 import Theme from 'theme';
 import { useAppDispatch, useAppSelector } from 'redux/store';
-import { getMovies, resetPage, setPage } from 'redux/slices/app';
+import { getMovies, resetPage } from 'redux/slices/app';
 
 interface SearchProps {
 

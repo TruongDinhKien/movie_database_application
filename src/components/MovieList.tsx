@@ -1,7 +1,5 @@
 import { FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from 'redux/store';
-import { useNavigation } from '@react-navigation/native';
 import { getMovies, setCurrentMovieId } from 'redux/slices/app';
 import AppButton from './cores/AppButton';
 import { Loading } from './Loading';

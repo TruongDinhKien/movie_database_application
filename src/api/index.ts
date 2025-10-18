@@ -43,7 +43,6 @@ export const apiPost = (endpoint: string, body?: any) =>
     body: body ? JSON.stringify(body) : undefined 
 })
 
-export const getMovieDetail = async (movieID: number) => {
-  const res = await apiGet(`movie/${movieID}?language=en-US`)
-  return res
-}
+export const getMovieDetail = (movieID: number) => apiGet(`movie/${movieID}?language=en-US`)
+export const getMovieCredits = (movieID: number) => apiGet(`movie/${movieID}/credits?language=$=en-US`)
+export const getRecommendations = (movieID: number) => apiGet(`movie/${movieID}/recommendations?language=$=en-US&page=1`)

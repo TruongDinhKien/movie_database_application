@@ -5,7 +5,8 @@ const colors = {
   tertiary: '#042541',
   white: '#FFFFFF',
   black: '#000000',
-  border: "#E3E3E3"
+  border: "#E3E3E3",
+  green: "#45FF8F"
 };
 
 const rounds = {

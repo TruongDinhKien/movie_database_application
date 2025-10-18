@@ -13,17 +13,21 @@ import {
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 import Theme from 'theme';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
+  const queryClient = new QueryClient()
 
   return (
     <SafeAreaProvider>
       <Provider store={store}>
-        <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
-        <AppContent />
+        <QueryClientProvider client={queryClient}>
+          <StatusBar barStyle={'dark-content'} backgroundColor="white" />
+          <AppContent />
+        </QueryClientProvider>
       </Provider>
-    </SafeAreaProvider>
+    </SafeAreaProvider >
   );
 }
 
