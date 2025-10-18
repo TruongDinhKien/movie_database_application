@@ -13,7 +13,7 @@ const Home: FC<HomeProps> = ({ }) => {
   const currentMovieId = useAppSelector(state=> state.app.currentMovieId)
 
   useEffect(() => {
-    dispatch(getMovies({}))
+    dispatch(getMovies({ page: 1}))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

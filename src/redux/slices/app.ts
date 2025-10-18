@@ -33,9 +33,16 @@ const settingSlice = createSlice({
     builder
       .addCase(getMovies.fulfilled, (state, action) => {
         state.loading = false
-        const movies = action.payload.results || []
-        state.movies = action.payload.page === 1 ? movies : [...state.movies, ...movies]
-        state.page = state.page + 1
+        const newMovies = (action.payload?.results || []) as Movie[]
+        if (state.page === 1) {
+            state.movies = newMovies 
+        } else {
+            const existingIds = new Set(state.movies.map(movie => movie.id));
+            const uniqueNewMovies = newMovies.filter(movie => !existingIds.has(movie.id));
+            state.movies.push(...uniqueNewMovies);
+        }
+
+        state.page += 1
       })
       .addCase(getMovies.rejected, (state) => {
         state.loading = false
