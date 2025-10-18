@@ -13,7 +13,7 @@ interface AppTextProps extends RNTextProps {
   tOptions?: object;
   children?: React.ReactNode;
   text?: never;
-  i18nKey: string;
+  i18nKey?: string;
   variant?: TVariant;
   size?: FontSize;
 }

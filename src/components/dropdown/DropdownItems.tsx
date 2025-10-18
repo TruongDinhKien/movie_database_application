@@ -53,8 +53,7 @@ const styles = StyleSheet.create({
   },
   item: {
     margin: 3,
-    borderWidth: 1,
-    borderRadius: Theme.rounds.small,
+    borderRadius: Theme.rounds.xSmall,
     borderColor: Theme.colors.border,
     padding: Theme.spacing.space_1
   }

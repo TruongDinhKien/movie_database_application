@@ -13,12 +13,14 @@ interface AppButtonProps {
   i18nKey: string;
   variant?: TVariant;
   style?: StyleProp<ViewStyle>;
+  textStyle?: any;
 }
 
 const AppButton: FC<TouchableOpacityProps & AppButtonProps> = ({
   i18nKey,
   style = [],
   variant,
+  textStyle,
   ...props
 }) => {
   return (
@@ -35,6 +37,7 @@ const AppButton: FC<TouchableOpacityProps & AppButtonProps> = ({
         style={{
           color:
             variant === 'primary' ? Theme.colors.white : Theme.colors.black,
+          ...(textStyle || {})
         }}
       />
     </TouchableOpacity>

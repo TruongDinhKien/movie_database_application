@@ -15,6 +15,7 @@ const Navigation = () => {
           component={TabNavigator}
           options={{
             headerShown: true,
+            headerTitle: '',
             header: Header,
           }} />
       </Stack.Navigator>

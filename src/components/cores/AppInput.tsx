@@ -39,7 +39,6 @@ const AppInput: FC<TextInputProps & AppInputProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginBottom: Theme.rounds.large,
     padding: Theme.spacing.space_1,
   },
   label: {
