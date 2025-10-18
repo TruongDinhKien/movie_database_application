@@ -3,6 +3,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Screenshots
+| Home Screen | Movie detail screen |
+| :-------------: | :-------------: |
+| ![Home Screen](src/assests/home_ios.png) | ![Movie Detail screen](src/assests/movie_detail_ios.png) |
+| ![Home Screen](src/assests/home_android.png) | ![Movie Detail screen](src/assests/movie_detail_android.png) |
 
 ## Step 1: Start Metro
 
@@ -12,7 +17,7 @@ To start the Metro dev server, run the following command from the root of your R
 
 ```sh
 # Using npm
-npm start
+npm run start
 
 # OR using Yarn
 yarn start
@@ -45,7 +50,7 @@ bundle install
 Then, and every time you update your native dependencies, run:
 
 ```sh
-bundle exec pod install
+pod install
 ```
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
