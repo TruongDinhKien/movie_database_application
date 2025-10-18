@@ -8,18 +8,23 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 const Tab = createBottomTabNavigator()
 
-const createIconTab = (icon: IconProp, size?: number) => ({ focused }: { focused: boolean }) => <FontAwesomeIcon icon={icon} color={focused ? Theme.colors.primary : Theme.colors.white} size={size}/>
+const createIconTab = (icon: IconProp, size?: number) => ({ focused }: { focused: boolean }) => <FontAwesomeIcon icon={icon} color={focused ? Theme.colors.primary : Theme.colors.white} size={size} />
 
-const BookmarkIcon = createIconTab(faBookmark);
-const HomeIcon = createIconTab(faHome, 22);
+const BookmarkIcon = createIconTab(faBookmark, 22);
+const HomeIcon = createIconTab(faHome, 26);
 
 export const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: Theme.colors.tertiary,
-        }
+          height: 50
+        },
+        sceneStyle: {
+          backgroundColor: Theme.colors.white,
+        },
       }}>
       <Tab.Screen
         name="Home"

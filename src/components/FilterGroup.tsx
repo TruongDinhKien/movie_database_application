@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 import Dropdown from './dropdown/Dropdown';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import AppInput from './cores/AppInput';
-import { setCategory, setSortMovieBy } from 'redux/slices/settings';
-import AppButton from './cores/AppButton';
-import Theme from 'theme';
+import { setCategory, setSearch, setSortMovieBy } from 'redux/slices/settings';
+import Search from './Search';
 
 interface FilterGroupProps { }
 
@@ -16,9 +15,9 @@ const categoryOptions = [
 ];
 
 const sortOptions = [
-  { label: 'by_alp_odr', value: 'by_alp_odr' },
-  { label: 'by_rating', value: 'by_rating' },
-  { label: 'by_release_date', value: 'by_release_date' },
+  { label: 'by_alp_odr', value: 'title.desc' },
+  { label: 'by_rating', value: 'vote_average.desc' },
+  { label: 'by_release_date', value: 'release_date.desc' },
 ];
 
 const FilterGroup: FC<FilterGroupProps> = ({ }) => {
@@ -41,24 +40,12 @@ const FilterGroup: FC<FilterGroupProps> = ({ }) => {
         onSelect={(value) => dispach(setSortMovieBy(value))}
         triggerName={'sort_by'}
       />
-      <AppInput placeholder="Search ..." />
-      <AppButton i18nKey='search' variant='secondary' style={styles.btnSearch} textStyle={styles.textSearch} />
+      <AppInput placeholder="Search ..." onChangeText={(text)=> dispach(setSearch(text))} />
+      <Search />
     </View>
   );
 };
 
 
-export const styles = StyleSheet.create({
-  btnSearch: {
-    padding: Theme.spacing.space_4,
-    margin: Theme.spacing.space_1,
-    borderRadius: Theme.rounds.xLarge,
-  },
-  textSearch: {
-    fontSize: Theme.fontSizes.medium,
-    fontWeight: Theme.fontWeights.semiBold,
-    color: 'gray',
-    textAlign: 'center'
-  },
-});
+
 export default FilterGroup;

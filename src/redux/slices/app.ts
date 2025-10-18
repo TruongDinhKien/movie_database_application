@@ -19,15 +19,17 @@ const settingSlice = createSlice({
   name: 'settings',
   initialState,
   reducers: {
-    setPage(state, action) {
-      state.page = action.payload
+    resetPage(state) {
+      state.page = 1
+      state.movies = []
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getMovies.fulfilled, (state, action) => {
         state.loading = false
-        state.movies = action.payload?.results || []
+        state.movies = [...state.movies, ...(action.payload?.results || [])]
+        state.page = state.page + 1
       })
       .addCase(getMovies.rejected, (state) => {
         state.loading = false
@@ -40,13 +42,20 @@ const settingSlice = createSlice({
 
 export const getMovies = createAsyncThunk(
   'movie/getMovies',
-  async (filter: any, thunkAPI) => {
+  async (options: any, thunkAPI) => {
     const state = (thunkAPI.getState() as RootState)
     const app = state.app
     const settings = state.settings
-
+    const searchTerm = settings.search
+    let endpoint: string;
     try {
-      const res = await apiGet(`movie/${settings.category}?language="en-US"&page=${app.page}`)
+      if (searchTerm.length) {
+        const encodedQuery = encodeURIComponent(searchTerm);
+        endpoint = `search/movie?query=${encodedQuery}&page=${app.page}&language=en-US`;
+      } else {
+        endpoint = `movie/${settings.category}?language=en-US&page=${app.page}&sort_by=${settings.sortedBy}`;
+      }
+      const res = await apiGet(endpoint);
       return res
 
     } catch (error) {
@@ -56,5 +65,5 @@ export const getMovies = createAsyncThunk(
   }
 )
 
-export const { setPage } = settingSlice.actions
+export const { resetPage } = settingSlice.actions
 export default settingSlice.reducer

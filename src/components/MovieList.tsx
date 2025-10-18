@@ -18,7 +18,7 @@ const MovieList: FC<MovieListProps> = ({ }) => {
   const loading = useAppSelector(state => state.app.loading)
   const sortedBy = useAppSelector(state => state.settings.sortedBy)
   const movies = useAppSelector(state => state.app.movies)
-  const sortedMovie = _.sortBy(movies, sortedBy)
+  const sortedMovie = _.sortBy(movies, sortedBy.split('.')[0])
   const onPress = (item: Movie) => {
     navigation.navigate('Detail', { movie: item })
   }
