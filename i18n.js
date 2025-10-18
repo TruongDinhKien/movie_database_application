@@ -6,7 +6,15 @@ const resources = {
     translation: {
       "welcome_message": "Welcome to React and react-i18next",
       "image_load_error": "Failed to load image",
-      "loading_image": "Loading image..."
+      "loading_image": "Loading image...",
+      "now_playing": "Now Playing",
+      "by_alp_odr": "By alphabetical order",
+      "by_rating": "By rating",
+      "by_release_date": "By release date",
+      "sort_by": "Sort By",
+      "search": "Search ...",
+      "upcoming": "Upcoming",
+      "popular": "Popular"
     }
   },
   vi: {

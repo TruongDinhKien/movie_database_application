@@ -12,7 +12,7 @@ const AppImage: React.FC<AppImageProps> = ({ source, style, placeholderStyle, ..
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const isRemote = typeof source === 'object' && source !== null && 'uri' in source;
-  console.log(isLoading , hasError,'isRemote');
+
   if (isLoading || hasError) {
     return (
       <View style={[styles.placeholder, style, placeholderStyle]}>
