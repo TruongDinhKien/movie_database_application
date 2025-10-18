@@ -5,6 +5,8 @@ const resources = {
   en: {
     translation: {
       "welcome_message": "Welcome to React and react-i18next",
+      "image_load_error": "Failed to load image",
+      "loading_image": "Loading image..."
     }
   },
   vi: {

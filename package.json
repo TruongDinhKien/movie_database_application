@@ -20,6 +20,7 @@
     "react-i18next": "^16.1.0",
     "react-native": "0.82.0",
     "react-native-safe-area-context": "^5.5.2",
+    "react-native-screens": "^4.17.1",
     "react-navigation": "^5.0.0"
   },
   "devDependencies": {
