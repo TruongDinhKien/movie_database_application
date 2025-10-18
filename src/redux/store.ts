@@ -3,9 +3,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { persistStore, persistReducer } from 'redux-persist'
 import settings from './slices/settings'
+import app from './slices/app'
 
 const combinedReducer = combineReducers({
-  settings
+  settings,
+  app
 })
 
 const persistConfig = {

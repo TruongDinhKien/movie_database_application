@@ -9,6 +9,7 @@ const colors = {
 };
 
 const rounds = {
+  xSmall: 2,
   small: 5,
   medium: 10,
   large: 20,

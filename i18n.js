@@ -12,7 +12,7 @@ const resources = {
       "by_rating": "By rating",
       "by_release_date": "By release date",
       "sort_by": "Sort By",
-      "search": "Search ...",
+      "search": "Search",
       "upcoming": "Upcoming",
       "popular": "Popular"
     }
