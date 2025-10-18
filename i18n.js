@@ -14,7 +14,8 @@ const resources = {
       "sort_by": "Sort By",
       "search": "Search",
       "upcoming": "Upcoming",
-      "popular": "Popular"
+      "popular": "Popular",
+      'load_more': "Load More"
     }
   },
   vi: {

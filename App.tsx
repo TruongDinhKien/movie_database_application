@@ -20,7 +20,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <Provider store={store}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
         <AppContent />
       </Provider>
     </SafeAreaProvider>
