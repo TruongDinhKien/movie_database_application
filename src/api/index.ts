@@ -41,4 +41,9 @@ export const apiPost = (endpoint: string, body?: any) =>
   apiFetch(endpoint, { 
     method: 'POST', 
     body: body ? JSON.stringify(body) : undefined 
-  })
+})
+
+export const getMovieDetail = async (movieID: number) => {
+  const res = await apiGet(`movie/${movieID}?language=en-US`)
+  return res
+}

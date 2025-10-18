@@ -15,7 +15,8 @@ const resources = {
       "search": "Search",
       "upcoming": "Upcoming",
       "popular": "Popular",
-      'load_more': "Load More"
+      'load_more': "Load More",
+      "user_score": "User Score"
     }
   },
   vi: {

@@ -7,12 +7,14 @@ type TApp = {
   loading: boolean
   movies: Movie[]
   page: number
+  currentMovieId: null | number
 }
 
 const initialState: TApp = {
   loading: false,
   movies: [],
-  page: 1
+  page: 1,
+  currentMovieId: null
 }
 
 const settingSlice = createSlice({
@@ -22,6 +24,9 @@ const settingSlice = createSlice({
     resetPage(state) {
       state.page = 1
       state.movies = []
+    },
+    setCurrentMovieId(state, action) {
+      state.currentMovieId = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -65,5 +70,5 @@ export const getMovies = createAsyncThunk(
   }
 )
 
-export const { resetPage } = settingSlice.actions
+export const { resetPage, setCurrentMovieId } = settingSlice.actions
 export default settingSlice.reducer

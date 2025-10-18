@@ -2,7 +2,7 @@ import { FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-nativ
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 import { useNavigation } from '@react-navigation/native';
-import { getMovies } from 'redux/slices/app';
+import { getMovies, setCurrentMovieId } from 'redux/slices/app';
 import AppButton from './cores/AppButton';
 import { Loading } from './Loading';
 import { AppText } from './cores';
@@ -13,14 +13,13 @@ import Theme from 'theme';
 interface MovieListProps { }
 
 const MovieList: FC<MovieListProps> = ({ }) => {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>()
   const dispatch = useAppDispatch()
   const loading = useAppSelector(state => state.app.loading)
   const sortedBy = useAppSelector(state => state.settings.sortedBy)
   const movies = useAppSelector(state => state.app.movies)
   const sortedMovie = _.sortBy(movies, sortedBy.split('.')[0])
   const onPress = (item: Movie) => {
-    navigation.navigate('Detail', { movie: item })
+    dispatch(setCurrentMovieId(item.id))
   }
 
   const renderItem = ({ item }: { item: Movie }) => (
@@ -32,7 +31,7 @@ const MovieList: FC<MovieListProps> = ({ }) => {
       <View style={styles.card_description}>
         <AppText style={styles.title}>{item.title}</AppText>
         <AppText style={styles.date}>{item.release_date}</AppText>
-        <AppText numberOfLines={2} style={styles.description}>
+        <AppText numberOfLines={2} style= {styles.description}>
           {item.overview}
         </AppText>
       </View>

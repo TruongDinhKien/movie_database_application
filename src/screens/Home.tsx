@@ -3,16 +3,22 @@ import MovieList from 'components/MovieList';
 import { FC, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { getMovies } from 'redux/slices/app';
-import { useAppDispatch } from 'redux/store';
+import { useAppDispatch, useAppSelector } from 'redux/store';
 import Theme from 'theme';
+import MovieDetail from './MovieDetail';
 
 interface HomeProps { }
 const Home: FC<HomeProps> = ({ }) => {
   const dispatch = useAppDispatch()
+  const currentMovieId = useAppSelector(state=> state.app.currentMovieId)
 
   useEffect(() => {
     dispatch(getMovies({}))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  if(currentMovieId) 
+    return <MovieDetail movieId={currentMovieId}/>
 
   return (
     <View style={styles.container}>
