@@ -10,7 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-vector-icons/common": "^12.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@react-native/new-app-screen": "0.82.0",
     "@react-navigation/bottom-tabs": "^7.4.9",
     "@react-navigation/native": "^7.1.18",
@@ -21,6 +23,7 @@
     "react-native": "0.82.0",
     "react-native-safe-area-context": "^5.5.2",
     "react-native-screens": "^4.17.1",
+    "react-native-svg": "^15.14.0",
     "react-navigation": "^5.0.0"
   },
   "devDependencies": {
